@@ -1,0 +1,607 @@
+/* Enhanced Markdown content styling */
+.markdown-content {
+  line-height: 1.8;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+/* CSV表格错误提示样式 */
+.markdown-content .csv-error {
+  padding: 1rem;
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  color: #dc2626;
+  margin: 1rem 0;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  scroll-margin-top: 100px;
+}
+
+.markdown-content h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.markdown-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.markdown-content h2 {
+  font-size: 2rem;
+  color: #1f2937;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.markdown-content h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 2px;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+  color: #374151;
+  position: relative;
+}
+
+.markdown-content h3::before {
+  content: '▶';
+  color: #3b82f6;
+  margin-right: 0.5rem;
+  font-size: 0.8em;
+}
+
+.markdown-content h4 {
+  font-size: 1.25rem;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.markdown-content h5 {
+  font-size: 1.125rem;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.markdown-content h6 {
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.markdown-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Enhanced List Styling */
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+/* Unordered list styling */
+.markdown-content ul {
+  list-style-type: none;
+}
+
+.markdown-content ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.markdown-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #3b82f6;
+  border-radius: 50%;
+}
+
+/* Ordered list styling */
+.markdown-content ol {
+  counter-reset: ordered-list;
+  list-style-type: none;
+}
+
+.markdown-content ol li {
+  counter-increment: ordered-list;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.markdown-content ol li::before {
+  content: counter(ordered-list);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #3b82f6;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #4b5563;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 0.75rem;
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #3b82f6;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  opacity: 0.3;
+}
+
+.markdown-content code {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  color: #dc2626;
+  font-weight: 500;
+  border: 1px solid #fed7aa;
+}
+
+.markdown-content pre {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #475569;
+}
+
+.markdown-content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+/* CSV Styling */
+.markdown-content pre[class*="language-csv"] {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+}
+
+.markdown-content pre[class*="language-csv"] code {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: #374151;
+  white-space: pre;
+  line-height: 1.6;
+}
+
+.markdown-content a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.markdown-content a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  transition: width 0.3s ease;
+}
+
+.markdown-content a:hover::after {
+  width: 100%;
+}
+
+.markdown-content a:hover {
+  color: #1d4ed8;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.markdown-content img:hover {
+  transform: scale(1.02);
+}
+
+/* Enhanced Table Styling */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: white;
+  border: 1px solid #e5e7eb;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  vertical-align: top;
+  transition: all 0.3s ease;
+}
+
+.markdown-content th {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.markdown-content th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%);
+}
+
+.markdown-content td {
+  background: white;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.markdown-content tr:nth-child(even) td {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.markdown-content tr:hover td {
+  background: linear-gradient(135deg, #e0f2fe 0%, #e1f5fe 100%);
+  transform: scale(1.01);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content tbody tr {
+  transition: all 0.3s ease;
+}
+
+.markdown-content tbody tr:hover {
+  transform: translateY(-2px);
+}
+
+/* CSV Table Styling */
+.markdown-content .csv-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 3rem 0 2rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: white;
+  border: 2px solid #10b981;
+  position: relative;
+}
+
+.markdown-content .csv-table::before {
+  content: '📊 CSV Data Table';
+  position: absolute;
+  top: -2.5rem;
+  left: 0;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content .csv-table th,
+.markdown-content .csv-table td {
+  border: none;
+  border-right: 1px solid #d1fae5;
+  border-bottom: 1px solid #d1fae5;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  vertical-align: top;
+  transition: all 0.3s ease;
+}
+
+.markdown-content .csv-table th:last-child,
+.markdown-content .csv-table td:last-child {
+  border-right: none;
+}
+
+.markdown-content .csv-table th {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  position: relative;
+  border-bottom: 2px solid #047857;
+}
+
+.markdown-content .csv-table th::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%);
+}
+
+.markdown-content .csv-table td {
+  background: white;
+  font-size: 0.95rem;
+}
+
+.markdown-content .csv-table tbody tr:nth-child(even) td {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.markdown-content .csv-table tbody tr:hover td {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  font-weight: 500;
+}
+
+.markdown-content .csv-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.markdown-content .csv-table tbody tr:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.2);
+}
+
+.markdown-content .csv-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 特殊样式 */
+.markdown-content strong {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.markdown-content em {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.markdown-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  margin: 3rem 0;
+  border-radius: 1px;
+}
+
+/* 提示框样式 */
+.markdown-content .alert-box {
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content .alert-info {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+.markdown-content .alert-warning {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.markdown-content .alert-success {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.markdown-content .alert-error {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.markdown-content .alert-box .flex {
+  display: flex;
+}
+
+.markdown-content .alert-box .items-start {
+  align-items: flex-start;
+}
+
+.markdown-content .alert-box .gap-3 {
+  gap: 0.75rem;
+}
+
+.markdown-content .alert-box .flex-shrink-0 {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+.markdown-content .alert-box .flex-1 {
+  flex: 1;
+}
+
+.markdown-content .alert-box .font-semibold {
+  font-weight: 600;
+}
+
+.markdown-content .alert-box .mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+/* 折叠区域样式 */
+.markdown-content .collapsible-section {
+  margin: 1.5rem 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content .collapsible-header {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.markdown-content .collapsible-header:hover {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.markdown-content .collapsible-header .font-medium {
+  font-weight: 500;
+  color: #374151;
+}
+
+.markdown-content .collapsible-header .chevron {
+  font-size: 0.875rem;
+  color: #6b7280;
+  transition: transform 0.3s ease;
+}
+
+.markdown-content .collapsible-content {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.markdown-content .collapsible-content[style*="display: block"] {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .markdown-content {
+    font-size: 1rem;
+  }
+  
+  .markdown-content h1 {
+    font-size: 2rem;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .markdown-content .alert-box,
+  .markdown-content .collapsible-section {
+    margin: 1rem 0;
+  }
+  
+  .markdown-content pre[class*="language-csv"],
+  .markdown-content table {
+    margin: 1.5rem 0;
+  }
+}
