@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "wrangler pages deploy .vercel/output/static --project-name=ClassMemo"
   },
   "dependencies": {
     "framer-motion": "^12.18.1",
@@ -29,6 +30,7 @@
     "@types/react-instantsearch-dom": "^6.12.9",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "next-on-pages": "^0.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

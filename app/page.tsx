@@ -1,6 +1,6 @@
 'use client'
 'use client'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import SearchWidget from '@/app/components/widgets/SearchWidget';
@@ -22,7 +22,6 @@ export default function Home() {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const { searchQuery, setSearchQuery } = useSearch();
-  const prevScrollY = useRef(0);
 
   useEffect(() => {
     const fetchPosts = async () => {

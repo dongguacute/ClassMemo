@@ -1,0 +1,41 @@
+name: Build and Deploy to gh-pages
+
+on:
+  push:
+    branches:
+      - main # 你的主分支
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout main branch
+        uses: actions/checkout@v3
+
+      - name: 🧱 Setup Node.js and pnpm
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: 🔧 Install pnpm
+        run: npm install -g pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🔨 Build and Export static site
+        run: |
+          pnpm build
+          pnpm exec next export
+
+      - name: 🚀 Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages

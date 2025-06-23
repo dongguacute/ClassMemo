@@ -63,6 +63,9 @@ importers:
       eslint-config-next:
         specifier: 15.3.4
         version: 15.3.4(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      next-on-pages:
+        specifier: ^0.1.6
+        version: 0.1.6
       tailwindcss:
         specifier: ^4
         version: 4.1.10
@@ -1713,6 +1716,11 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  next-on-pages@0.1.6:
+    resolution: {integrity: sha512-ggOHkbeyMxI6WQ21CWOBRI2w0UjTPZYpSOSsOQ/HpESnMJaMjatd6Y0Uy50fHvZ3hHn2ijPzKwHmQ+fAmCrJ7Q==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    hasBin: true
 
   next@15.3.4:
     resolution: {integrity: sha512-mHKd50C+mCjam/gcnwqL1T1vPx/XQNFlXqFIVdgQdVAFY9iIQtY0IfaVflEYzKiqjeA7B0cYYMaCrmAYFjs4rA==}
@@ -4061,6 +4069,8 @@ snapshots:
   napi-postinstall@0.2.4: {}
 
   natural-compare@1.4.0: {}
+
+  next-on-pages@0.1.6: {}
 
   next@15.3.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
