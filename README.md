@@ -1,7 +1,4 @@
 # ClassMemo
 A class memory station
-test
-test
-test
-test
-test
+
+相关内容请阅读网站内注意事项

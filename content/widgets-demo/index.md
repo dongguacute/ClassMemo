@@ -143,6 +143,7 @@ interface AlertBoxProps {
 - **列表项目**
 - *斜体文本*
 - `内联代码`
+- ~~删除线~~
 - [链接](https://example.com)
 
 > 这是一个引用块，可以在折叠区域中正常显示。
@@ -167,5 +168,9 @@ interface AlertBoxProps {
 - 无障碍访问支持
 
 ---
+
+## 图片
+
+![](./background.jpg)
 
 *如果您有任何建议或反馈，欢迎通过页面底部的分享功能联系我们。*

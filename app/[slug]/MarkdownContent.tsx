@@ -48,26 +48,47 @@ export default function MarkdownContent({ content }: { content: string }) {
   const [processedContent, setProcessedContent] = useState<string>('');
 
   // 处理特殊语法（提示框、折叠区域和CSV表格）
+  // Helper function to escape HTML
+  const escapeHtml = (unsafe: string): string => {
+    const textMap: Record<string, string> = {
+      '&': '&',
+      '<': '<',
+      '>': '>',
+      '"': '"',
+      "'": '&#039;'
+    };
+    return unsafe.split('').map(char => textMap[char] || char).join('');
+  };
+  
+  // Function to copy code to clipboard
+  const copyCode = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      // Optionally show a confirmation message (not implemented here)
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+    });
+  };
+  
   const processSpecialSyntax = (content: string) => {
     let processed = content;
-
+  
     // 处理CSV代码块转换为表格
     processed = processed.replace(
       /```csv\n([\s\S]*?)\n```/g,
       (match, csvContent) => {
         const lines = csvContent.trim().split('\n');
         if (lines.length === 0) return match;
-
+  
         const headers = lines[0].split(',').map((h: string) => h.trim());
         const rows = lines.slice(1).map((line: string) => line.split(',').map((cell: string) => cell.trim()));
-
+  
         let tableHtml = '<table class="csv-table">';
         tableHtml += '<thead><tr>';
         headers.forEach((header: string) => {
           tableHtml += `<th>${header}</th>`;
         });
         tableHtml += '</tr></thead><tbody>';
-
+  
         rows.forEach((row: string[]) => {
           tableHtml += '<tr>';
           row.forEach((cell: string) => {
@@ -75,12 +96,12 @@ export default function MarkdownContent({ content }: { content: string }) {
           });
           tableHtml += '</tr>';
         });
-
+  
         tableHtml += '</tbody></table>';
         return tableHtml;
       }
     );
-
+  
     // 处理提示框语法: :::type title
     processed = processed.replace(
       /:::(\w+)(?:\s+(.+?))?\n([\s\S]*?):::/g,
@@ -99,7 +120,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         </div>`;
       }
     );
-
+  
     // 处理折叠区域语法: +++title
     processed = processed.replace(
       /\+\+\+(.+?)\n([\s\S]*?)\+\+\+/g,
@@ -116,10 +137,33 @@ export default function MarkdownContent({ content }: { content: string }) {
         </div>`;
       }
     );
-
+  
+    // 处理代码块
+    processed = processed.replace(
+      /```([\s\S]*?)```/g,
+      (match, code) => {
+        const language = match.split('```')[1]?.trim() || 'javascript';
+        return `<div class="code-block">
+          <pre><code class="language-${language}">${escapeHtml(code)}</code></pre>
+          <button onclick="copyCode('${escapeHtml(code)}')">Copy</button>
+        </div>`;
+      }
+    );
+    
+    // 处理删除线
+    processed = processed.replace(
+      /~~([\s\S]*?)~~/g,
+      (match, text) => `<del>${text}</del>`
+    );
+  
+    // 处理图片
+    processed = processed.replace(
+      /!\[\]\((.*?)\)/g,
+      '<img src="$1" alt="" />'
+    );
+  
     return processed;
   };
-
   // 解析内容，提取标题用于目录
   useEffect(() => {
     const processed = processSpecialSyntax(content);
