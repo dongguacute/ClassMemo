@@ -6,6 +6,9 @@ import { SearchProvider } from './context/SearchContext';
 export const metadata: Metadata = {
   title: 'ClassMemo',
   description: 'ClassMemo Application',
+  icons: {
+    icon: "./ldnote.ico",
+  },
 };
 
 export default function RootLayout({
