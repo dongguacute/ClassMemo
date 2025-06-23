@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
-  output: 'export',
-  experimental: {
-    serverActions: true,
-    instrumentationHook: true,
-  },
+const nextConfig: NextConfig = {
+  
 };
 
 export default nextConfig;
