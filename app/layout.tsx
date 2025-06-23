@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'ClassMemo',
   description: 'ClassMemo Application',
   icons: {
-    icon: "/ldnote.ico",
+    icon: "/public/ldnote.ico",
   },
 };
 
