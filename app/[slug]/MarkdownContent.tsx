@@ -61,13 +61,6 @@ export default function MarkdownContent({ content }: { content: string }) {
   };
   
   // Function to copy code to clipboard
-  const copyCode = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      // Optionally show a confirmation message (not implemented here)
-    }).catch(err => {
-      console.error('Could not copy text: ', err);
-    });
-  };
   
   const processSpecialSyntax = (content: string) => {
     let processed = content;
@@ -145,7 +138,6 @@ export default function MarkdownContent({ content }: { content: string }) {
         const language = match.split('```')[1]?.trim() || 'javascript';
         return `<div class="code-block">
           <pre><code class="language-${language}">${escapeHtml(code)}</code></pre>
-          <button onclick="copyCode('${escapeHtml(code)}')">Copy</button>
         </div>`;
       }
     );
