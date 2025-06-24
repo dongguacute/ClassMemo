@@ -1,5 +1,5 @@
 "use client";
-
+"use client";
 import { useEffect, useState } from 'react';
 import './markdown-content.css';
 
